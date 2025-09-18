@@ -1,4 +1,4 @@
-# Find Palindrome - reads the same forward as backward
+#1 Find Palindrome - reads the same forward as backward
 
 def check_Palindrome(text):
     left = 0
@@ -11,6 +11,20 @@ def check_Palindrome(text):
 
     return True
 
-print(check_Palindrome("aba"))
-print(check_Palindrome("test"))
-print(check_Palindrome(""))
+#2 Pair of numbers (int) that sum to target
+def check_for_target(nums, target):
+    left = 0
+    right = len(nums)-1
+    while left < right:
+        current_Sum = nums[left] + nums[right]
+        if current_Sum == target:
+            return True
+
+        if current_Sum > target:
+            right -= 1
+        else:
+            left += 1
+    return False
+
+print(check_for_target([1, 2, 3, 4, 5], 9))
+print(check_for_target([1, 2, 3, 4, 5], 6))
