@@ -30,6 +30,19 @@ def checkLeaderInArray(nums):
 
     return leaders
 
-print("arr: ", checkLeaderInArray([1,2,3,4,5]))
-print("arr: ", checkLeaderInArray([1,2,3,5,4]))
+# Using Suffix Maximum - O(n) Time and O(1) Space:
+def  checkLeaderInArr_SuffixMax(nums):
+    resultArr = []
+    n = len(nums)
+
+    maxRightEle = nums[-1]
+    resultArr.append(maxRightEle)
+
+    for i in range(n-2, -1, -1):
+        if nums[i]  > maxRightEle:
+            maxRightEle = nums[i]
+            resultArr.append(maxRightEle)
+
+    resultArr.reverse()
+    return resultArr
 
